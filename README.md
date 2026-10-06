@@ -17,9 +17,9 @@ Historical Bitcoin price data can be found on CoinGecko: https://www.coingecko.c
 
 # Steps
 ```
-speeches ──► stablecoin passages ──► stance & tone labels ──► human validation ──► monthly indices ──► analysis
- (ECB)        keyword ±1 sentence     dictionary / NLI / LLM     F1, Cohen's κ        RSI, tone,        breaks, milestones,
-                                      FinBERT (tone)                                  attention         market regressions
+ECB speeches ──► stablecoin passages ──► stance & tone labels ──► human validation ──► monthly indices ──► analysis
+                 keyword ±1 sentence      dictionary/NLI/LLM                         RSI, tone,         breaks, milestones,
+                                          FinBERT (tone)                                attention          market regressions
 ```
 
 ## Research questions

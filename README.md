@@ -8,6 +8,9 @@ The same analysis is implemented twice, in **Python**. Both read one configurati
 on the same data, return the same passages, labels, indices and estimates.
 
 **Raw data files are not shared in this repository. Some parts of the study are intentionally redacted.**
+ECB speeches are public on the ECB dataset: https://www.ecb.europa.eu/press/key/html/downloads.it.html
+Stablecoin metrics can be found on RWA.xyz: https://app.rwa.xyz/stablecoins
+Historical Bitcoin price data can be found on CoinGecko: https://www.coingecko.com/en/coins/bitcoin/historical_data
 
 ```
 speeches ──► stablecoin passages ──► stance & tone labels ──► human validation ──► monthly indices ──► analysis

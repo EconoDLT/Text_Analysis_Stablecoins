@@ -66,7 +66,6 @@ for `y` = growth of total stablecoin value, growth of EU/EEA-issued value, chang
 
 ```bash
 git clone [https://github.com/USERNAME/ecb-stablecoin-monitor && cd ecb-stablecoin-monitor](https://github.com/EconoDLT/Text_Analysis_Stablecoins)
-# copy the three data files into data/ (see data/README.md)
 
 # Python
 python -m venv .venv && source .venv/bin/activate

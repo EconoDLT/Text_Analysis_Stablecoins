@@ -15,6 +15,7 @@ Stablecoin metrics can be found on RWA.xyz: https://app.rwa.xyz/stablecoins
 
 Historical Bitcoin price data can be found on CoinGecko: https://www.coingecko.com/en/coins/bitcoin/historical_data
 
+# Steps
 ```
 speeches ──► stablecoin passages ──► stance & tone labels ──► human validation ──► monthly indices ──► analysis
  (ECB)        keyword ±1 sentence     dictionary / NLI / LLM     F1, Cohen's κ        RSI, tone,        breaks, milestones,

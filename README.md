@@ -4,10 +4,10 @@ A reproducible of a demo text-analysis pipeline that measures **what the Europea
 stablecoins** in its speeches (Jan 2019 – Oct 2026), turns it into a **monthly Regulatory Stance Index**, and
 relates it to legal milestones (MiCA, GENIUS Act) and to the value of **EU-issued stablecoins**.
 
-The same analysis is implemented twice, in **Python** and in **R**. Both read one configuration file and,
+The same analysis is implemented twice, in **Python**. Both read one configuration file and,
 on the same data, return the same passages, labels, indices and estimates.
 
-**Raw data files are not shared in this repository. Some parts of the study are redacted on purpose.**
+**Raw data files are not shared in this repository. Some parts of the study are intentionally redacted.**
 
 ```
 speeches ──► stablecoin passages ──► stance & tone labels ──► human validation ──► monthly indices ──► analysis
@@ -27,7 +27,7 @@ speeches ──► stablecoin passages ──► stance & tone labels ──► 
 
 | Step               | Method                                                                              | Model                                        |
 | ------------------ | ----------------------------------------------------------------------------------- | -------------------------------------------- |
-| Passage extraction | regex keyword rule (MiCA/GENIUS legal terms), sentence window ±1, citation filter   | –                                            |
+| Passage extraction | Keywords (MiCA/GENIUS legal terms), sentence window ±1, citation filter             | –                                            |
 | Stance baseline    | dictionary of restrictive vs supportive terms                                       | –                                            |
 | **Stance (main)**  | **zero-shot NLI classification** — each label is a hypothesis, no training needed   | `MoritzLaurer/deberta-v3-base-zeroshot-v2.0` |
 | Stance (optional)  | generative LLM with the codebook as prompt, greedy decoding                         | `Qwen/Qwen2.5-1.5B-Instruct`                 |
@@ -46,21 +46,20 @@ for `y` = growth of total stablecoin value, growth of EU/EEA-issued value, chang
 ## Repository
 
 ```
-├── config/config.json      # keywords, dictionaries, models, prompts, milestones, jurisdiction groups
-├── python/ecb_stablecoin.py
-├── R/ecb_stablecoin.R
-├── CODEBOOK.md             # stance/tone definitions for human coders
-├── data/                   # put the raw files here (not committed) – see data/README.md
-├── labels/                 # validation_sample.csv (created on first run, filled by coders)
-├── outputs/{python,R}/     # results (created by the scripts)
-├── paper/                  # IEEE-format paper: main.tex, references.bib, main.pdf
-├── requirements.txt  install.R
+├── config/config.json        # keywords, dictionaries, models, prompts, milestones, jurisdiction groups
+├── python/ecb_stablecoin.py  # code
+├── CODEBOOK.md               # stance/tone definitions for human coders
+├── data/                     # [REDACTED]
+├── labels/                   # [REDACTED]
+├── outputs/{python,R}/       # results (created by the script)
+├── paper/                    # research proposal is already presented in my application for the job opening
+├── requirements.txt          # requirements to run the analysis (I removed the R scripts from the analysis)
 ```
 
-## Quick start
+## Configurations
 
 ```bash
-git clone https://github.com/USERNAME/ecb-stablecoin-monitor && cd ecb-stablecoin-monitor
+git clone [https://github.com/USERNAME/ecb-stablecoin-monitor && cd ecb-stablecoin-monitor](https://github.com/EconoDLT/Text_Analysis_Stablecoins)
 # copy the three data files into data/ (see data/README.md)
 
 # Python
@@ -69,12 +68,6 @@ pip install -r requirements.txt
 python python/ecb_stablecoin.py --models none    # 1) fast check, dictionary only (seconds)
 python python/ecb_stablecoin.py                  # 2) + zero-shot NLI stance + FinBERT tone (minutes, CPU)
 python python/ecb_stablecoin.py --llm            # 3) + generative LLM labeller (slow on CPU)
-
-# R  (language models run through reticulate with the same Python environment)
-Rscript install.R
-export RETICULATE_PYTHON=$PWD/.venv/bin/python
-Rscript R/ecb_stablecoin.R --models none
-Rscript R/ecb_stablecoin.R
 ```
 
 The first run downloads the Hugging Face models (~0.7 GB; ~3 GB with `--llm`). Without internet or
@@ -101,19 +94,11 @@ The first run downloads the Hugging Face models (~0.7 GB; ~3 GB with `--llm`). W
 | `validation_metrics.csv`, `method_agreement.csv`                           | validation                                                                   |
 | `fig1_attention_stance.png`, `fig2_speakers.png`, `fig3_stance_market.png` | figures                                                                      |
 
-## Python–R parity
-
-Tested on a sample of the speeches with offline test data: identical passages, dictionary/NLI/tone labels,
-indices, Bai–Perron breaks and BIC, Newey–West regressions, Granger tests and validation metrics.
-Known difference: **ADF p-values** (R `tseries` interpolates a table bounded to [0.01, 0.10]; Python uses
-MacKinnon p-values); the ADF statistics are identical. If the validation sample does not exist, Python and R
-draw different random samples — create it once and both scripts reuse it.
-
 ## Customising
 
 Everything substantive lives in `config/config.json`: keywords, dictionary terms, NLI label descriptions and
 hypothesis template, LLM prompt, model names, milestones, regression milestones, jurisdiction groups,
-break trimming, Granger lags. To extend the monitor to ESMA, EBA, the Fed or the SEC, add their speeches in
+break trimming, Granger lags. To extend the monitor to ESMA, EBA, the Fed or the SEC, I should add their speeches in
 the same `date|speakers|title|subtitle|contents` format and adapt the keywords.
 
 ## Data notes

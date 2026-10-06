@@ -7,7 +7,7 @@ relates it to legal milestones (MiCA, GENIUS Act) and to the value of **EU-issue
 The same analysis is implemented twice, in **Python** and in **R**. Both read one configuration file and,
 on the same data, return the same passages, labels, indices and estimates.
 
-Raw data files are not shared in this repository. Some parts of the study might be reducted on purpose.
+**Raw data files are not shared in this repository. Some parts of the study are redacted on purpose.**
 
 ```
 speeches ──► stablecoin passages ──► stance & tone labels ──► human validation ──► monthly indices ──► analysis

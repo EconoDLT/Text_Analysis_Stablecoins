@@ -16,7 +16,7 @@ Stablecoin metrics can be found on RWA.xyz: https://app.rwa.xyz/stablecoins
 Historical Bitcoin price data can be found on CoinGecko: https://www.coingecko.com/en/coins/bitcoin/historical_data
 
 # Steps
-```
+
 flowchart TD
     A["**1. Data Collection**<br/>ECB speeches<br/>Jan 2019 – Oct 2026"] 
     B["**2. Passage Extraction**<br/>Stablecoin keywords<br/>±1 sentence and citation filter"]
@@ -48,7 +48,6 @@ flowchart TD
     class D validation
     class E,G,H analysis
     class F,R1,R2,R3 output
-```
 
 ```
 ECB speeches ──► stablecoin passages ──► stance & tone labels ──► human validation ──► monthly indices ──► analysis

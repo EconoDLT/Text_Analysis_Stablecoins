@@ -66,11 +66,11 @@ ECB speeches ──► stablecoin passages ──► stance & tone labels ──
 
 ## Research questions
 
-|     | Question                                                                                               | Output                                                                      |
-| --- | ------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- |
-| RQ1 | How much, by whom and with what stance/tone does the ECB talk about stablecoins? Dollar vs euro coins? | monthly indices, speaker table, stance×tone, focus table, distinctive words |
-| RQ2 | Does stance change around MiCA and the GENIUS Act?                                                     | before/after tests, Bai–Perron breaks                                       |
-| RQ3 | Is ECB stance associated with the value of EU-issued stablecoins beyond the laws and the crypto cycle? | OLS with Newey–West errors, Granger tests                                   |
+|     | Question                                                                                               |
+| --- | ------------------------------------------------------------------------------------------------------ |
+| RQ1 | How much, by whom and with what stance/tone does the ECB talk about stablecoins? Dollar vs euro coins? |
+| RQ2 | Does stance change around MiCA and the GENIUS Act?                                                     |
+| RQ3 | Is ECB stance associated with the value of EU-issued stablecoins beyond the laws and the crypto cycle? |                          |
 
 ## Methods (NLP)
 

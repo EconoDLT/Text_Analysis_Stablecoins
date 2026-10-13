@@ -22,20 +22,20 @@ flowchart LR
     subgraph TOP[" "]
         direction LR
         A["Data Collection:<br/>ECB speeches"]
-        B["Passage Extraction:<br/>Stablecoin Keywords<br/>±1 Sentence"]
-        C["Text Classification:<br/>Stance: Dictionary + NLI<br/>Tone: FinBERT"]
+        B["Passage Extraction,<br/>Stablecoin Keywords<br/>±1 Sentence"]
+        C["Text Classification,<br/>Stance: Dictionary + NLI<br/>Tone: FinBERT"]
         A --> B --> C
     end
 
-    D["Human Validation:<br/>150 Passages<br/>Accuracy, κ"]
-    E["Index Construction:<br/>Monthly Stance Index<br/>Tone + Attention"]
+    D["Human Validation,<br/>150 Passages<br/>Accuracy, κ"]
+    E["Index Construction,<br/>Monthly Stance Index<br/>Tone + Attention"]
     F["Empirical Analysis,<br/>Legal Milestones and Breaks,<br/>Market RegressionS"]
 
     C --> D
     D --> E --> F
 
-    G["Stablecoin metrics<br/>RWA.xyz"] --> F
-    H["Bitcoin prices<br/>CoinGecko"] --> F
+    G["Stablecoin Metrics<br/>RWA.xyz"] --> F
+    H["Bitcoin Prices<br/>CoinGecko"] --> F
 
     F --> R1["RQ1: ECB Stance and Tone"]
     F --> R2["RQ2: Legal Milestones"]

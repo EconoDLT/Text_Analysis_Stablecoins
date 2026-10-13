@@ -18,31 +18,28 @@ Historical Bitcoin price data can be found on CoinGecko: https://www.coingecko.c
 # Research Steps
 
 ```mermaid
-flowchart TB
-    subgraph ROW1[" "]
+flowchart LR
+    subgraph TOP[" "]
         direction LR
-        A["**1. Data Collection**<br/>ECB speeches<br/>Jan 2019 – Oct 2026"]
-        B["**2. Passage Extraction**<br/>Stablecoin keywords<br/>±1 sentence + citation filter"]
-        C["**3. Text Classification**<br/>Stance: Dictionary + NLI<br/>Tone: FinBERT; optional LLM"]
+        A["**1. Data Collection**<br/>ECB speeches"]
+        B["**2. Passage Extraction**<br/>Stablecoin keywords<br/>±1 sentence"]
+        C["**3. Text Classification**<br/>Stance: Dictionary + NLI<br/>Tone: FinBERT"]
         A --> B --> C
     end
 
-    subgraph ROW2[" "]
-        direction LR
-        D["**4. Human Validation**<br/>150 passages<br/>Accuracy, Macro-F1, Cohen's κ"]
-        E["**5. Index Construction**<br/>Monthly stance index<br/>Tone index + attention"]
-        F["**6. Empirical Analysis**<br/>Legal milestones and breaks<br/>Market regressions + Granger tests"]
-        D --> E --> F
-    end
+    D["**4. Human Validation**<br/>150 passages<br/>Accuracy, Macro-F1, κ"]
+    E["**5. Index Construction**<br/>Monthly stance index<br/>Tone + attention"]
+    F["**6. Empirical Analysis**<br/>Legal milestones and breaks<br/>Market regressions + Granger"]
 
     C --> D
+    D --> E --> F
 
     G["Stablecoin metrics<br/>RWA.xyz"] --> F
     H["Bitcoin prices<br/>CoinGecko"] --> F
 
-    F --> R1["RQ1: ECB stance, tone and attention"]
-    F --> R2["RQ2: Changes around legal milestones"]
-    F --> R3["RQ3: Association with EU/EEA stablecoin value"]
+    F --> R1["RQ1: ECB stance and tone"]
+    F --> R2["RQ2: Legal milestones"]
+    F --> R3["RQ3: EU/EEA stablecoin value"]
 
     classDef data fill:#E3F2FD,stroke:#2878B5,color:#12345A
     classDef nlp fill:#EDE7F6,stroke:#7955A3,color:#302050
@@ -56,9 +53,9 @@ flowchart TB
     class E,G,H analysis
     class F,R1,R2,R3 output
 
-    style ROW1 fill:none,stroke:none
-    style ROW2 fill:none,stroke:none
+    style TOP fill:none,stroke:none
 ```
+
 
 
 ```

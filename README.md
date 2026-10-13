@@ -16,6 +16,32 @@ Stablecoin metrics can be found on RWA.xyz: https://app.rwa.xyz/stablecoins
 Historical Bitcoin price data can be found on CoinGecko: https://www.coingecko.com/en/coins/bitcoin/historical_data
 
 # Steps
+```mermaid
+flowchart TB
+    A["ECB speeches<br/>650 speeches, 2019–2026"]
+    B["Passage extraction<br/>Keywords, ±1 sentence window"]
+    C["Stance and tone labelling<br/>Dictionary, NLI, LLM, FinBERT"]
+    D["Human validation<br/>150 passages, macro-F1, κ"]
+    E["Monthly indices<br/>Stance (RSI), tone, attention"]
+    M["Market data<br/>RWA.xyz value, BTC returns"]
+
+    R1["RQ1 · Description<br/>Who, how often, tone"]
+    R2["RQ2 · Legal milestones<br/>Before/after, breaks"]
+    R3["RQ3 · Market link<br/>OLS (Newey–West), Granger"]
+
+    A --> B --> C --> D --> E
+    E --> R1
+    E --> R2
+    E --> R3
+    M --> R3
+
+    classDef bw fill:#ffffff,stroke:#000000,stroke-width:1px,color:#000000;
+    classDef rq fill:#ffffff,stroke:#000000,stroke-width:2px,color:#000000;
+    class A,B,C,D,E,M bw;
+    class R1,R2,R3 rq;
+    linkStyle default stroke:#000000,stroke-width:1px;
+```
+
 ```
 ECB speeches ──► stablecoin passages ──► stance & tone labels ──► human validation ──► monthly indices ──► analysis
                  keyword ±1 sentence      dictionary/NLI/LLM                            RSI, tone,         breaks, milestones,

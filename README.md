@@ -21,15 +21,15 @@ Historical Bitcoin price data can be found on CoinGecko: https://www.coingecko.c
 flowchart LR
     subgraph TOP[" "]
         direction LR
-        A["Data Collection<br/>ECB speeches"]
-        B["Passage Extraction<br/>Stablecoin keywords<br/>±1 sentence"]
-        C["Text Classification<br/>Stance: Dictionary + NLI<br/>Tone: FinBERT"]
+        A["Data Collection:<br/>ECB speeches"]
+        B["Passage Extraction:<br/>Stablecoin Keywords<br/>±1 Sentence"]
+        C["Text Classification:<br/>Stance: Dictionary + NLI<br/>Tone: FinBERT"]
         A --> B --> C
     end
 
-    D["Human Validation<br/>150 passages<br/>Accuracy, Macro-F1, κ"]
-    E["Index Construction<br/>Monthly stance index<br/>Tone + attention"]
-    F["Empirical Analysis<br/>Legal milestones and breaks<br/>Market regressions + Granger"]
+    D["Human Validation:<br/>150 Passages<br/>Accuracy, κ"]
+    E["Index Construction:<br/>Monthly Stance Index<br/>Tone + Attention"]
+    F["Empirical Analysis,<br/>Legal Milestones and Breaks,<br/>Market RegressionS"]
 
     C --> D
     D --> E --> F
@@ -37,9 +37,9 @@ flowchart LR
     G["Stablecoin metrics<br/>RWA.xyz"] --> F
     H["Bitcoin prices<br/>CoinGecko"] --> F
 
-    F --> R1["RQ1: ECB stance and tone"]
-    F --> R2["RQ2: Legal milestones"]
-    F --> R3["RQ3: EU/EEA stablecoin value"]
+    F --> R1["RQ1: ECB Stance and Tone"]
+    F --> R2["RQ2: Legal Milestones"]
+    F --> R3["RQ3: EU/EEA Stablecoin Value"]
 
     classDef data fill:#E3F2FD,stroke:#2878B5,color:#12345A
     classDef nlp fill:#EDE7F6,stroke:#7955A3,color:#302050

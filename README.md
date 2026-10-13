@@ -15,25 +15,30 @@ Stablecoin metrics can be found on RWA.xyz: https://app.rwa.xyz/stablecoins
 
 Historical Bitcoin price data can be found on CoinGecko: https://www.coingecko.com/en/coins/bitcoin/historical_data
 
-# Steps
-## Research Design
+# Research Steps
 
 ```mermaid
-flowchart TD
-    A["**1. Data Collection**<br/>ECB speeches<br/>Jan 2019 – Oct 2026"] 
-    B["**2. Passage Extraction**<br/>Stablecoin keywords<br/>±1 sentence and citation filter"]
-    C["**3. Text Classification**<br/>Stance: Dictionary + NLI<br/>Tone: FinBERT<br/>Optional: LLM"]
-    D["**4. Human Validation**<br/>150 passages<br/>Accuracy, Macro-F1, Cohen's κ"]
-    E["**5. Index Construction**<br/>Monthly Regulatory Stance Index<br/>Tone Index and Attention"]
-    F["**6. Empirical Analysis**<br/>Legal milestones and structural breaks<br/>Market regressions and Granger tests"]
+flowchart TB
+    subgraph ROW1[" "]
+        direction LR
+        A["**1. Data Collection**<br/>ECB speeches<br/>Jan 2019 – Oct 2026"]
+        B["**2. Passage Extraction**<br/>Stablecoin keywords<br/>±1 sentence + citation filter"]
+        C["**3. Text Classification**<br/>Stance: Dictionary + NLI<br/>Tone: FinBERT; optional LLM"]
+        A --> B --> C
+    end
 
-    A --> B --> C --> D --> E --> F
+    subgraph ROW2[" "]
+        direction LR
+        D["**4. Human Validation**<br/>150 passages<br/>Accuracy, Macro-F1, Cohen's κ"]
+        E["**5. Index Construction**<br/>Monthly stance index<br/>Tone index + attention"]
+        F["**6. Empirical Analysis**<br/>Legal milestones and breaks<br/>Market regressions + Granger tests"]
+        D --> E --> F
+    end
 
-    G["Stablecoin metrics<br/>RWA.xyz"]
-    H["Bitcoin prices<br/>CoinGecko"]
+    C --> D
 
-    G --> F
-    H --> F
+    G["Stablecoin metrics<br/>RWA.xyz"] --> F
+    H["Bitcoin prices<br/>CoinGecko"] --> F
 
     F --> R1["RQ1: ECB stance, tone and attention"]
     F --> R2["RQ2: Changes around legal milestones"]
@@ -50,7 +55,11 @@ flowchart TD
     class D validation
     class E,G,H analysis
     class F,R1,R2,R3 output
+
+    style ROW1 fill:none,stroke:none
+    style ROW2 fill:none,stroke:none
 ```
+
 
 ```
 ECB speeches ──► stablecoin passages ──► stance & tone labels ──► human validation ──► monthly indices ──► analysis

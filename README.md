@@ -21,15 +21,15 @@ Historical Bitcoin price data can be found on CoinGecko: https://www.coingecko.c
 flowchart LR
     subgraph TOP[" "]
         direction LR
-        A["**1. Data Collection**<br/>ECB speeches"]
-        B["**2. Passage Extraction**<br/>Stablecoin keywords<br/>±1 sentence"]
-        C["**3. Text Classification**<br/>Stance: Dictionary + NLI<br/>Tone: FinBERT"]
+        A["Data Collection<br/>ECB speeches"]
+        B["Passage Extraction<br/>Stablecoin keywords<br/>±1 sentence"]
+        C["Text Classification<br/>Stance: Dictionary + NLI<br/>Tone: FinBERT"]
         A --> B --> C
     end
 
-    D["**4. Human Validation**<br/>150 passages<br/>Accuracy, Macro-F1, κ"]
-    E["**5. Index Construction**<br/>Monthly stance index<br/>Tone + attention"]
-    F["**6. Empirical Analysis**<br/>Legal milestones and breaks<br/>Market regressions + Granger"]
+    D["Human Validation<br/>150 passages<br/>Accuracy, Macro-F1, κ"]
+    E["Index Construction<br/>Monthly stance index<br/>Tone + attention"]
+    F["Empirical Analysis<br/>Legal milestones and breaks<br/>Market regressions + Granger"]
 
     C --> D
     D --> E --> F
